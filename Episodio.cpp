@@ -1,22 +1,27 @@
 #include "Episodio.h"
 
-Episodio::Episodio(string iD, string nombre, int temporada, int numEpisodio)
+Episodio::Episodio(string iD, string nombrePS, int temporada, int numEpisodio) : Video(iD, nombrePS, genero, calificacion, duracion, fechaEstreno)
 {
-    this->iDE=iDE;
-    this->nombreE=nombreE;
-    this-> temporada=temporada;
+    this->temporada=temporada;
     this->numEpisodio=numEpisodio;
-
 }
 
-string Episodio::getIDE()
+Episodio::Episodio(const vector<string> &datos) : Video(datos)
 {
-    return iDE;
+    iD = datos[0];
+    nombrePS = datos[1];
+    temporada=stod(datos[6]);
+    numEpisodio=stod(datos[7]);
 }
 
-string Episodio::getNombreE()
+string Episodio::getID()
 {
-    return nombreE;
+    return iD;
+}
+
+string Episodio::getNombrePS()
+{
+    return nombrePS;
 }
 
 int Episodio::getTemporada()
@@ -27,4 +32,22 @@ int Episodio::getTemporada()
 int Episodio::getNumEpisodio()
 {
     return numEpisodio;
+}
+
+
+
+void Episodio::muestraCalifMayor()
+{
+    double calificacionMax;
+    for(Video* video: videos){
+        
+        if (video->getCalificacion() >= calificacionMax){
+            
+            video->getID();
+            video->getNombrePS();
+            video->getCalificacion();
+            video->getDuracion();
+            video->getFechadeEstreno();
+        }
+    }
 }

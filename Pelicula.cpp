@@ -1,8 +1,12 @@
 #include "Pelicula.h"
 
-Pelicula::Pelicula(string iD, string nombrePS, string genero, double calificacion, double duracion, string fechaEstreno) : Video(iD, nombrePS, genero, calificacion, duracion, fechaEstreno)
+Pelicula::Pelicula() : Video(iD, nombrePS, genero, calificacion, duracion, fechaEstreno)
 {
+}
 
+Pelicula::Pelicula(const vector<string> &datos) : Video(datos)
+{
+    
 }
 
 string Pelicula::getID()
@@ -56,3 +60,18 @@ void Pelicula::muestraCalificacion()
 
 }
 
+void Pelicula::muestraCalifMayor()
+{
+    double calificacionMax;
+    for(Video* video: videos){
+        
+        if (video->getCalificacion() >= calificacionMax){
+
+            video->getID();
+            video->getNombrePS();
+            video->getCalificacion();
+            video->getDuracion();
+            video->getFechadeEstreno();
+        }
+    }
+}

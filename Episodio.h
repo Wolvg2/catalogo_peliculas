@@ -12,21 +12,21 @@ using namespace std;
 #ifndef EPISODIO_H
 #define EPISODIO_H
 
-class Episodio
+class Episodio : public Video
 {
 protected:
-    string iDE;
-    string nombreE;
     int temporada;
     int numEpisodio;
     vector <Episodio* > episodios;
 
 public:
-    Episodio(string iDE, string nombreE, int temporada, int numEpisodio);
-    string getIDE();
-    string getNombreE();
+    Episodio(string iD, string nombrePS, int temporada, int numEpisodio);
+    Episodio(const vector <string>& datos);
+    string getID();
+    string getNombrePS();
     int getTemporada();
     int getNumEpisodio();
+    virtual void muestraCalifMayor();
 
 
 };

@@ -1,68 +1,36 @@
 #include "Serie.h"
 
-Serie::Serie(string iDE, string nombreE, int temporada, int numEpisodio, string iD, string nombrePS, string genero, double calificaion, double duracion, string fechadeEstreno) : Episodio(iDE, nombreE, temporada, numEpisodio), Video(iD, nombrePS, genero, calificacion, duracion, fechaEstreno)
+//constructor por default
+Serie::Serie() : Episodio(iD, nombrePS, temporada, numEpisodio)
 {
-    
 }
 
-string Serie::getIDE()
+//constructor del vector
+Serie::Serie(const vector<string> &datos) : Episodio(datos)
 {
-    return iDE;
 }
 
-string Serie::getNombreE()
+string Serie::getID() //Regresa el id de la serie
 {
-    return nombreE;
+    return iD;
 }
 
-int Serie::getTemporada()
+string Serie::getNombrePS() //Regresa el nombre de la serie
+{
+    return nombrePS;
+}
+
+int Serie::getTemporada() //Regresa la temporada
 {
     return temporada;
 }
 
-int Serie::getNumEpisodio()
+int Serie::getNumEpisodio() //Regresa el numero de episodios
 {
     return numEpisodio;
 }
 
-void Serie::muestraCalificacion()
+void Serie::mostrarSerie()
 {
-    int calif;
-    cout << "Ingresa una calificacion" << endl;
-    cin>> calif;
-
-    for(Video* video : videos){
-
-        if(video->getCalificacion() >= calif){
-
-            video->getID();
-            video->getNombrePS();
-            video->getGenero();
-            video->getCalificacion();
-            video->getDuracion();
-            video->getFechadeEstreno();
-        }
-    }
+    
 }
-
-void Serie::muestraEpisodios(const string &serie)
-{
-    cout << "Episodios" << serie << endl;
-
-    for(Video* video : videos){
-
-        Serie* serieP = dynamic_cast<Serie*>(video);
-        if(serieP && serieP->getNombrePS() == serie){
-
-            serieP->getID();
-            serieP->getNombrePS();
-            serieP->getGenero();
-            serieP->getCalificacion();
-            serieP->getDuracion();
-            serieP->getFechadeEstreno();
-        }
-    }
-
-}
-
-

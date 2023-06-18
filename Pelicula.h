@@ -18,7 +18,8 @@ class Pelicula : public Video
 private:
     
 public:
-    Pelicula(string iD, string nombrePS, string genero, double calificacion, double duracion, string fechaEstreno);
+    Pelicula();
+    Pelicula(const vector<string>& datos);
     string getID(); //Get que regresa el id de la serie o pelicula 
     string getNombrePS(); //Get que regresa el nombre de la serie o pelicula
     string getGenero(); //Get que regresa el genero de la serie o pelicula
@@ -26,6 +27,7 @@ public:
     double getCalificacion(); //Get que regresa la calificacion 
     string getFechadeEstreno(); // Get regresa la fecha de estreno
     void muestraCalificacion();
+    virtual void muestraCalifMayor();
 };
 
 
